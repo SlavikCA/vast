@@ -1,2 +1,4 @@
-# vast
-help info for our Vast rigs
+# Vast
+
+[HashRate stats](https://hashrate.no/platforms/vast/hosts/598643)
+
