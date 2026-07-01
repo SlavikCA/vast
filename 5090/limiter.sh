@@ -3,7 +3,7 @@
 # Miner GPU Power Monitor
 # Watches for miner process and adjusts GPU power limit accordingly.
 
-MINER_PATTERN="alpha-miner"      # process name to watch
+MINER_PATTERN="miner"      # process name to watch
 POWER_MINER=400                  # watts when miner is running
 POWER_DEFAULT=575                # watts when idle
 GPU_INDEX=0
