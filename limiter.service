@@ -19,4 +19,4 @@ WantedBy=multi-user.target
 # sudo systemctl enable limiter
 # sudo systemctl start limiter
 # sudo systemctl status limiter
-# journalctl -u limiter -f
+# sudo journalctl -u limiter -f

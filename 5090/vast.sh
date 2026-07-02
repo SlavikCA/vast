@@ -1,11 +1,3 @@
-Vast API
-=======
-
-pipx install vastai --python python3.11
-
-set API key first
-
-```bash
 vastai search offers -i "machine_id=142067 verified=any"
   #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs    RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country              
   1  43155579  13.3  1x  RTX_5090  53.7  3.2      10.0   386.7  32.6  3252  0.2014  140.1  695.74  366.8  610.43.02  1054.3  1070.3    90.0  181.8     142067   unverified  598643   998    South_Carolina,_US
@@ -41,23 +33,3 @@ vastai cleanup machine 142067
 
 # If that doesn't work you can also try:
 vastai delete machine 142067
-```
-
-run docker directly:
-====================
-
-```bash
-sudo docker run -d --rm --name ubuntu24 \
-  --device=nvidia.com/gpu=all \
-  -e NVIDIA_VISIBLE_DEVICES=all \
-  -e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
-  nvidia/cuda:13.3.0-devel-ubuntu24.04 \
-  sleep infinity
-
-sudo docker run -d \
- --device=nvidia.com/gpu=all \
- -e NVIDIA_VISIBLE_DEVICES=all \
- -e NVIDIA_DRIVER_CAPABILITIES=compute,utility \
- -p 3000:3000 -p 9000:9000 \
- --name flux2-dev camenduru/tostui-flux-2-dev
-```
