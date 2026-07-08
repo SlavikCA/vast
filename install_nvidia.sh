@@ -1,7 +1,7 @@
 on VM:
 
 # 4090
-hostpci0: 0000:04:00,pcie=1,x-vga=1,rombar=0
+hostpci0: 0000:04:00,pcie=1,rombar=0
 # 5090
 hostpci0: 0000:16:00,pcie=1
 
@@ -35,3 +35,12 @@ sudo apt-get install -y nvidia-container-toolkit
 
 # Drivers:
 nvidia-smi
+
+# Force RTX 5090 functions to stay in D0 and block deepest sleep
+nano /etc/udev/rules.d/99-vfio-gpu-pm.rules
+
+ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{device}=="0x2b85", ATTR{power/control}="on", ATTR{d3cold_allowed}="0"
+ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{device}=="0x22e8", ATTR{power/control}="on", ATTR{d3cold_allowed}="0"
+
+udevadm control --reload-rules
+udevadm trigger -s pci

@@ -6,7 +6,7 @@ vastai search offers "machine_id=142279 verified=any"
   #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country           
   1  43450401  13.3  1x  RTX_4090D  11.6  2.4      16.0   96.5  49.1  1585  0.5347  120.4  225.12  49.0   610.43.02  468.2   470.8     60.0  184.0     142279   unverified  598643   999    South_Carolina,_US
 
-vastai list machine 142279 --price_gpu 0.30 --price_min_bid 0.15 --price_disk 0.15 
+vastai list machine 142279 --price_gpu 0.37 --price_min_bid 0.15 --price_disk 0.15
 vastai show machine 142279
 
   #  ID      #gpus  gpu_name  disk  hostname  driver     reliab  veri        ip              geoloc              reports  gpuD_$/h  gpuI$/h  rdisc  netu_$/TB  netd_$/TB  occup
