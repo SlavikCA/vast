@@ -1,8 +1,7 @@
 ## MACHINE
 vastai show machine 142279
-
-  #  ID      #gpus  gpu_name   disk  hostname  driver     reliab  veri        ip              geoloc              reports  gpuD_$/h  gpuI$/h  rdisc  netu_$/TB  netd_$/TB  occup
-  1  142279  1      RTX_4090D  1585  vast4090  610.43.02  0.9690  unverified  104.63.172.143  South_Carolina,_US  -        0.24      0.15     0.00   3.00       2.00       x_
+  #  ID      #gpus  gpu_name   disk  hostname  driver     reliab  veri      ip              geoloc              reports  gpuD_$/h  gpuI$/h  rdisc  netu_$/TB  netd_$/TB  occup
+  1  142279  1      RTX_4090D  1446  vast4090  610.43.02  0.9860  verified  104.63.172.143  South_Carolina,_US  -        0.32      0.15     0.00   3.00       2.00       D_
 
 vastai self-test machine 142279
 # --ignore-requirements
@@ -10,7 +9,7 @@ vastai self-test machine 142279
 Machine: 142279 Done with testing remote.py results DONE
 Test completed successfully.
 
-vastai list machine 142279 --price_gpu 0.24 --price_min_bid 0.15 --price_disk 0.15
+vastai list machine 142279 --price_gpu 0.40 --price_min_bid 0.20 --price_disk 0.15
 
 # to remove stale/expired contracts from your machine:
 vastai cleanup machine 142279
