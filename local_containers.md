@@ -34,3 +34,5 @@ sudo mkdir /mnt/models; sudo chmod 777 /mnt/models
 sudo nano /etc/fstab
 192.168.0.138:/volume2/models /mnt/models nfs defaults 0 0
 sudo mount -a
+
+sudo rsync -av --no-o --no-g /var/lib/docker/.cache/huggingface/hub/models--unsloth--medgemma-27b-it-GGUF /mnt/models/.cache/huggingface/hub/
