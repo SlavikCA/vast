@@ -1,3 +1,4 @@
+sudo mkdir -p /var/lib/docker/.cache/huggingface/hub
 curl -LsSf https://hf.co/cli/install.sh | bash
 
 # --dry-run
