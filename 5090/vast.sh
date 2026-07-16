@@ -3,7 +3,8 @@ vastai show machine 142067
   #  ID      #gpus  gpu_name  disk  hostname  driver     reliab  veri        ip              geoloc              reports  gpuD_$/h  gpuI$/h  rdisc  netu_$/TB  netd_$/TB  occup
   1  142067  1      RTX_5090  3236  vast5090  610.43.02  0.9871  unverified  104.63.172.143  South_Carolina,_US  -        0.99      0.20     0.30   3.00       2.00       I_
 
-vastai self-test machine 142067 --ignore-requirements
+vastai self-test machine 142067
+# --ignore-requirements
 Machine: 142067 Done with testing remote.py results DONE
 Test completed successfully.
 

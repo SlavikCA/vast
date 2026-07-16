@@ -27,3 +27,10 @@ sudo docker run -d \
  -p 3000:3000 -p 9000:9000 \
  --name flux2-dev camenduru/tostui-flux-2-dev
 ```
+
+Local share
+===========
+sudo mkdir /mnt/models; sudo chmod 777 /mnt/models
+sudo nano /etc/fstab
+192.168.0.138:/volume2/models /mnt/models nfs defaults 0 0
+sudo mount -a
