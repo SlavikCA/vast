@@ -14,3 +14,5 @@ sudo rsync -av /mnt/models/.cache/huggingface/hub/models--unsloth--medgemma-27b-
 # 320G
 [unsloth/GLM-5.2-GGUF:Q3_K_XL]
 sudo rsync -av /mnt/models/.cache/huggingface/hub/models--unsloth--GLM-5.2-GGUF /var/lib/docker/.cache/huggingface/hub/
+
+sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub  huihui-ai/Huihui-DeepSeek-V4-Flash-abliterated-GGUF --include *Q3_K_S

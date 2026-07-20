@@ -9,7 +9,8 @@ vastai self-test machine 142279
 Machine: 142279 Done with testing remote.py results DONE
 Test completed successfully.
 
-vastai list machine 142279 --price_gpu 1.99 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --duration 2years
+vastai list machine 142279 --price_gpu 0.44 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --duration 2years
+vastai list machine 142279 --price_gpu 0.44 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --end_date 1784721600
 vastai unlist machine 142279
 
 # to remove stale/expired contracts from your machine:
@@ -17,15 +18,18 @@ vastai cleanup machine 142279
 # If that doesn't work you can also try:
 vastai delete machine ????
 
+vastai schedule maint 142279 --sdate 1784894400 --duration 4 --maintenance_category internet
+vastai show maints -i 142279
+
 ## OFFERS
 
 vastai search offers -i "machine_id=142279 verified=any"
   #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country
-  1  ??  13.3  1x  RTX_4090D  11.6  2.4      16.0   96.5  49.1  1585  0.2014  120.4  597.77  509.2  610.43.02  867.2   885.3     96.9  177.2     142279   unverified  598643   999    South_Carolina,_US
+  1  ??        13.3  1x  RTX_4090D  11.6  2.4      16.0   96.5  49.1  1585  0.2014  120.4  597.77  509.2  610.43.02  867.2   885.3     96.9  177.2     142279   unverified  598643   999    South_Carolina,_US
 
 vastai search offers "machine_id=142279 verified=any"
   #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country
-  1  ??  13.3  1x  RTX_4090D  11.6  2.4      16.0   96.5  49.1  1585  0.3214  120.4  374.57  328.8  610.43.02  867.2   885.3     96.9  177.2     142279   unverified  598643   999    South_Carolina,_US
+  1  ??        13.3  1x  RTX_4090D  11.6  2.4      16.0   96.5  49.1  1585  0.3214  120.4  374.57  328.8  610.43.02  867.2   885.3     96.9  177.2     142279   unverified  598643   999    South_Carolina,_US
 
 ## VOLUMES   https://docs.vast.ai/guides/instances/storage/volumes
 

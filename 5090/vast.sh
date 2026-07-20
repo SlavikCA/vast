@@ -8,13 +8,18 @@ vastai self-test machine 142067
 Machine: 142067 Done with testing remote.py results DONE
 Test completed successfully.
 
-vastai list machine 142067 --price_gpu 1.99 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --duration 2years
+vastai list machine 142067 --price_gpu 0.40 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --duration 2years
+vastai list machine 142067 --price_gpu 0.30 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --end_date 1784721600
 vastai unlist machine 142067
 
 # to remove stale/expired contracts from your machine:
 vastai cleanup machine 142067
 
+vastai schedule maint 142067 --sdate 1784894400 --duration 4 --maintenance_category internet
 vastai show maints -i 142067
+
+# run vastai cleanup machine [id] in the cli After the 48 hours
+# Otherwise you still take the reliability hit
 
 ## OFFERS
 
