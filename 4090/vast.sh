@@ -1,7 +1,7 @@
 ## MACHINE
 vastai show machine 142279
   #  ID      #gpus  gpu_name   disk  hostname  driver     reliab  veri      ip              geoloc              reports  gpuD_$/h  gpuI$/h  rdisc  netu_$/TB  netd_$/TB  occup
-  1  142279  1      RTX_4090D  1445  vast4090  610.43.02  0.9873  verified  104.63.172.143  South_Carolina,_US  -        1.99      0.20     0.30   6.14       4.10       D_
+  1  142279  1      RTX_4090D  1444  vast4090  610.43.02  0.9421  verified  104.63.172.143  South_Carolina,_US  -        0.44      0.20     0.30   6.14       4.10       D_
 
 vastai self-test machine 142279
 # --ignore-requirements
@@ -9,7 +9,7 @@ vastai self-test machine 142279
 Machine: 142279 Done with testing remote.py results DONE
 Test completed successfully.
 
-vastai list machine 142279 --price_gpu 0.44 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --duration 2years
+vastai list machine 142279 --price_gpu 0.44 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 700 --vol_price 0.20  --duration 2years
 vastai list machine 142279 --price_gpu 0.44 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --end_date 1784721600
 vastai unlist machine 142279
 
@@ -20,6 +20,7 @@ vastai delete machine ????
 
 vastai schedule maint 142279 --sdate 1784894400 --duration 4 --maintenance_category internet
 vastai show maints -i 142279
+vastai cancel maint 142279
 
 ## OFFERS
 
@@ -34,8 +35,8 @@ vastai search offers "machine_id=142279 verified=any"
 ## VOLUMES   https://docs.vast.ai/guides/instances/storage/volumes
 
 vastai search volumes  "machine_id=142279 verified=any"
-  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name  $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country
-  1  45040117  13.3  2.4      3117.0    722   SN850P     0.27        610.43.02  908.0   924.0     98.7  729.9     142279   verified  598643   South_Carolina,_US
+  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name  $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  country
+  1  45040117  13.3  2.4      3116.0    700   SN850P     0.27        610.43.02  903.0   930.2     80.7  730.0     142279   deverified  598643   South_Carolina,_US
 
 ## INSTANCE
 
