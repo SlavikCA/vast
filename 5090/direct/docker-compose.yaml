@@ -11,7 +11,6 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     volumes:
       - /var/lib/docker/.cache:/root/.cache:ro
-      - ./models.ini:/app/models.ini:ro
     entrypoint: ["./llama-server"]
     # https://github.com/ggml-org/llama.cpp/tree/master/tools/server
     command: >
@@ -24,3 +23,4 @@ services:
       --spec-type draft-dflash
       --spec-draft-n-max 15
       --spec-draft-model /root/.cache/huggingface/laguna-s-2.1-DFlash-BF16.gguf
+      --fit-target 8192
