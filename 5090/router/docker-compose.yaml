@@ -10,7 +10,7 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     volumes:
-      - /var/lib/docker/.cache:/root/.cache
+      - /var/lib/docker/.cache:/root/.cache:ro
       - ./models.ini:/app/models.ini:ro
     entrypoint: ["./llama-server"]
     # https://github.com/ggml-org/llama.cpp/tree/master/tools/server
