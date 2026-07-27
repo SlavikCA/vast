@@ -15,4 +15,8 @@ sudo rsync -av /mnt/models/.cache/huggingface/hub/models--unsloth--medgemma-27b-
 [unsloth/GLM-5.2-GGUF:Q3_K_XL]
 sudo rsync -av /mnt/models/.cache/huggingface/hub/models--unsloth--GLM-5.2-GGUF /var/lib/docker/.cache/huggingface/hub/
 
-sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub  huihui-ai/Huihui-DeepSeek-V4-Flash-abliterated-GGUF --include *Q3_K_S
+sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub  huihui-ai/Huihui-DeepSeek-V4-Flash-abliterated-GGUF --include *Q3_K_S.gguf
+
+[poolside/Laguna-S-2.1-GGUF:Q4_K_M]
+#  https://huggingface.co/poolside/Laguna-S-2.1-GGUF
+sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub poolside/Laguna-S-2.1-GGUF --include *Q4_K_M.gguf --include=laguna-s-2.1-DFlash-BF16.gguf
