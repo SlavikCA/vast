@@ -9,7 +9,7 @@ vastai self-test machine 142279
 Machine: 142279 Done with testing remote.py results DONE
 Test completed successfully.
 
-vastai list machine 142279 --price_gpu 0.44 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 700 --vol_price 0.20  --duration 2years
+vastai list machine 142279 --price_gpu 0.44 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 700 --vol_price 0.20  --duration 2weeks
 vastai list machine 142279 --price_gpu 0.44 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --end_date 1784721600
 vastai unlist machine 142279
 
