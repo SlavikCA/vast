@@ -10,7 +10,7 @@ Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
 # --price_gpu 0.29 == 0.3885
-vastai list machine 142067 --price_gpu 0.40 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1500 --vol_price 0.20  --duration 1month
+vastai list machine 142067 --price_gpu 0.31 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1500 --vol_price 0.20  --duration 1month
 # --duration 2years
 # --end_date 1784721600
 vastai unlist machine 142067
@@ -27,11 +27,11 @@ vastai cancel maint 142067
 
 ## OFFERS
 
-vastai search offers -i "machine_id=142067 verified=any"
+vastai search offers -i "machine_id=142067 verified=any rentable=any"
   #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs    RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country
   1  45046506  13.3  1x  RTX_5090  53.7  3.2      10.0   386.7  32.6  2765  0.2685  181.0  673.93  624.8  610.43.02  1204.0  1195.0    99.2  730.0     142067   unverified  598643   998    South_Carolina,_US
 
-vastai search offers "machine_id=142067 verified=any"
+vastai search offers "machine_id=142067 verified=any rentable=any"
   #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs    RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country
   1  45046506  13.3  1x  RTX_5090  53.7  3.2      10.0   386.7  32.6  2765  0.3885  181.1  466.22  473.4  610.43.02  1601.6  1536.9    99.2  730.0     142067   unverified  598643   998    South_Carolina,_US
 

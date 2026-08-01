@@ -24,19 +24,23 @@ vastai cancel maint 142279
 
 ## OFFERS
 
-vastai search offers -i "machine_id=142279 verified=any"
-  #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country
-  1  ??        13.3  1x  RTX_4090D  11.6  2.4      16.0   96.5  49.1  1585  0.2014  120.4  597.77  509.2  610.43.02  867.2   885.3     96.9  177.2     142279   unverified  598643   999    South_Carolina,_US
+vastai search offers -i "machine_id=142279 verified=any rentable=any"
+  #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
+  1  45040116  13.3  1x  RTX_4090D  11.3  2.4      16.0   96.5  49.1  1445  0.2685  120.4  448.29  608.1  610.43.02  3966.7  4197.8    99.5  14.0      142279   verified  598643   999    South_Carolina,_US
 
-vastai search offers "machine_id=142279 verified=any"
-  #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country
-  1  ??        13.3  1x  RTX_4090D  11.6  2.4      16.0   96.5  49.1  1585  0.3214  120.4  374.57  328.8  610.43.02  867.2   885.3     96.9  177.2     142279   unverified  598643   999    South_Carolina,_US
+vastai search offers "machine_id=142279 verified=any rentable=any"
+  #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
+  1  45040116  13.3  1x  RTX_4090D  11.3  2.4      16.0   96.5  49.1  1445  0.5885  120.4  204.54  295.9  610.43.02  3966.7  4197.8    99.5  14.0      142279   verified  598643   999    South_Carolina,_US
+
+curl -s 'https://console.vast.ai/api/v0/bundles' \
+   -H 'Authorization: Bearer ???' \
+   -d '{"external": {"eq": false}, "machine_id": {"eq": "142279"}, "type": "on-demand"}' | jq
 
 ## VOLUMES   https://docs.vast.ai/guides/instances/storage/volumes
 
 vastai search volumes  "machine_id=142279 verified=any"
-  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name  $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  country
-  1  45040117  13.3  2.4      3116.0    700   SN850P     0.27        610.43.02  903.0   930.2     80.7  730.0     142279   deverified  598643   South_Carolina,_US
+  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name  $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country
+  1  45040117  13.3  2.4      2895.8    700   SN850P     0.27        610.43.02  3966.7  4197.8    99.5  11.3      142279   verified  598643   South_Carolina,_US
 
 ## INSTANCE
 
@@ -45,9 +49,3 @@ vastai create instance ?? \
  --image alphaminetech/pearl-miner:1.8.8 \
  --onstart-cmd "/usr/local/bin/entrypoint.sh" \
  --env '-e PEARL_ADDRESS=prl1paw8r8sr6xalvqkw7qa43j3gyfygy8rry6l2vyjwhfw4s6vmpaz5s7gs9jm -e PEARL_WORKER=rtx4090d -e PEARL_DIFFICULTY=1048576 -e PEARL_POOL_HOST=us1.alphapool.tech -e PEARL_POOL_PORT=5566'
-
-
-vastai create instance ?? \
- --image nvidia/cuda:13.3.0-devel-ubuntu24.04 \
- --onstart-cmd "sleep infinity" \
- --ssh --direct
