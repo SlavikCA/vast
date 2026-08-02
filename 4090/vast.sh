@@ -49,3 +49,7 @@ vastai create instance ?? \
  --image alphaminetech/pearl-miner:1.8.8 \
  --onstart-cmd "/usr/local/bin/entrypoint.sh" \
  --env '-e PEARL_ADDRESS=prl1paw8r8sr6xalvqkw7qa43j3gyfygy8rry6l2vyjwhfw4s6vmpaz5s7gs9jm -e PEARL_WORKER=rtx4090d -e PEARL_DIFFICULTY=1048576 -e PEARL_POOL_HOST=us1.alphapool.tech -e PEARL_POOL_PORT=5566'
+
+vastai search offers "verified=true gpu_name notin [Q_RTX_8000,A40] num_gpus=1 gpu_ram>40 gpu_ram<60 geolocation notin [CN] rentable=false"
+# sort by price:
+# -o 'dph'
