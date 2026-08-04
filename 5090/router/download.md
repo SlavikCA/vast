@@ -23,7 +23,8 @@ sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/hugg
 sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub unsloth/Laguna-S-2.1-GGUF  --include "UD-Q4_K_XL/*"
 
 [unsloth/DeepSeek-V4-Flash-0731:Q8_K_XL]
-sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub unsloth/DeepSeek-V4-Flash-0731-GGUF --include "UD-Q8_K_XL/*"
+sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub unsloth/DeepSeek-V4-Flash-0731-GGUF --include "UD-Q8_K_XL/*" --include "dspark/dspark-DeepSeek-V4-Flash-0731-BF16.gguf"
+
 # 160 GB
 
 https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF/tree/main/UD-Q3_K_XL

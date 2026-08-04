@@ -9,7 +9,7 @@ Machine: 142067 Done with testing remote.py results DONE
 Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
-# --price_gpu 0.29 == 0.3885
+# --price_gpu 0.31 == 0.4152
 vastai list machine 142067 --price_gpu 0.31 --discount_rate 0.3 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1500 --vol_price 0.20  --duration 3month
 # --duration 2years
 # --end_date 1784721600
@@ -53,8 +53,11 @@ vastai create instance 45046506 \
 
 vastai create instance 45046506 \
  --image nvidia/cuda:13.3.0-devel-ubuntu24.04 \
- --onstart-cmd "sleep infinity" \
  --ssh --direct
+
+curl -X PUT 'https://console.vast.ai/api/v0/asks/45046506/' \
+   -H "Authorization: Bearer $VAST_API_KEY" \
+   -d '{"client_id": "me", "image": "nvidia/cuda:13.3.0-devel-ubuntu24.04", "env": {}, "price": null, "disk": 10, "runtype": "ssh_direct ssh_proxy"}'
 
 vastai search offers "verified=false gpu_name in [RTX_5090] num_gpus=1 geolocation in [US] rentable=true"
 # cuda_vers=13.3"
