@@ -17,3 +17,5 @@ Why I'm using llama.cpp directly and not ran by Vast:
 - hassle managing volume (size, ID, variables)
 - hard to figure out parameters
 - limited versions available on Vast template
+
+# Vast instances can use at most 64 open ports each
