@@ -1,0 +1,44 @@
+### What happened
+
+ The RTX 5090 dropped off the PCIe bus twice, both times with Xid 79: GPU has fallen off the bus:
+
+ ┌───┬─────────────────┬───────────────────────────────────────────────┐
+ │ # │ Time            │ Boot / kernel                                 │
+ ├───┼─────────────────┼───────────────────────────────────────────────┤
+ │ 1 │ Aug 29 16:38:34 │ previous boot, 7.0.0-29                       │
+ ├───┼─────────────────┼───────────────────────────────────────────────┤
+ │ 2 │ Aug 29 22:07:54 │ current boot, 7.0.0-30 (~40 min after reboot) │
+ └───┴─────────────────┴───────────────────────────────────────────────┘
+
+ After each event the driver logged a flood of rpcSendMessage failed … status 0x0f (NV_ERR_GPU_IS_LOST) and GspRmFree failed, and nvidia-smi reported No devices were found.
+
+ ### Why it's happening
+
+ The GPU's on-die controller (GSP, the "RM driver" running in firmware on the card) stops responding under load, taking the PCIe link down with it. The card physically loses its internal logic while the
+ PCIe slot itself stays connected.
+
+ The evidence rules out software and points to hardware:
+
+ 1. No PCIe AER errors, no MCE/EDAC, no thermal trip, no preceding Xid in either boot. A driver crash or a link/signal-integrity fault would leave a precursor (engine hang, GSP RPC timeout, AER correctable
+    errors, a link-retrain message before the crash). There is none — the GPU vanished in a single instant.
+ 2. The link downshifted to Gen1 after the crash. Root port 00:01.1: capable 32GT/s x16 (Gen5), now running 2.5GT/s x16 (Gen1), DLActive-, LinkState+. The 5090 was pulling 536 W of compute beforehand, so
+    it was at Gen5 x16 during normal operation. Gen1 is the consequence of the GSP hang (its link management died), not the trigger.
+ 3. Not kernel-specific — reproduces identically on two kernels (7.0.0-29 and 7.0.0-30) with the same nvidia-open 610.57.04 driver, which ran clean for 11 days before the first event.
+ 4. Bug report found nothing — the Summary of Errors section is empty; no driver misconfiguration or conflicting drivers.
+
+ ### Most likely cause (ranked)
+
+ 1. Power delivery to the card. The 5090 runs at a 600 W limit and was drawing 536 W at crash time. A marginal or poorly-seated 12V-2x6 / 12VHPWR connector (or PSU transient) browns out the GPU's internal
+    rails, dropping GSP without logging any AER — exactly this picture. This is the 5090's best-known failure mode, and CyberPowerPC prebuilts are not exempt.
+ 2. Defective/marginal GPU. A failing 5090 board presents identically and recurs under load.
+ 3. GSP firmware/driver bug (Blackwell, open module). Possible but weaker — it doesn't explain the 11-day clean run and the absence of a GSP-timeout precursor.
+
+ The honest limit: #1 and #2 can't be split from logs alone, because the GPU left no trace.
+
+ ### Recommended action
+
+ 1. Power off; reseat the card and the 12V-2x6 connector on both ends; inspect for melting/burn marks.
+ 2. Confirm PSU wattage and that the GPU power isn't daisy-chained off a single rail.
+ 3. Send the bug report (/home/slavik/nvidia-bug-report.log.gz) to linux-bugs@nvidia.com with the two Xid 79 timestamps and the Gen1 link-downshift detail.
+ 4. If it recurs after reseating → RMA the card.
+

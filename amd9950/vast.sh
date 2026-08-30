@@ -1,7 +1,7 @@
 ## MACHINE
 vastai show machine 147987
   #  ID      #gpus  gpu_name  disk  hostname  driver     reliab  veri      ip              geoloc              reports  gpuD_$/h  gpuI$/h  rdisc  netu_$/TB  netd_$/TB  occup
-  1  147987  1      RTX_5090  1439  amd9950   610.57.04  0.9750  verified  104.63.172.143  South_Carolina,_US  -        0.49      0.30     0.30   6.14       4.10       D_   
+  1  147987  1      RTX_5090  1450  amd9950   610.57.04  0.9844  verified  104.63.172.143  South_Carolina,_US  -        0.45      0.30     0.30   6.14       4.10       x_
 
 vastai self-test machine 147987
 # --ignore-requirements
@@ -10,7 +10,7 @@ Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
 # --price_gpu 0.31 == 0.4152
-vastai list machine 147987 --price_gpu 0.49 --discount_rate 0.3 --price_min_bid 0.30 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1000 --vol_price 0.20  --duration 12month
+vastai list machine 147987 --price_gpu 0.45 --discount_rate 0.3 --price_min_bid 0.30 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1000 --vol_price 0.20  --duration 12month
 # --end_date 1784721600
 vastai unlist machine 147987
 
