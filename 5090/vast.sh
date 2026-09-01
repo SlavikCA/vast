@@ -27,18 +27,18 @@ vastai cancel maint 142067
 ## OFFERS
 
 vastai search offers -i "machine_id=142067 verified=any rentable=any"
-  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country           
-  1  48181507  13.3  1x  RTX_5090  53.7  3.2      16.0   64.2  32.6  2492  0.4019  199.2  495.80  617.1  610.43.02  4728.0  4756.6    99.7  360.0     142067   verified  598643   256    South_Carolina,_US
+  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
+  1  49537970  13.3  1x  RTX_5090  53.6  -        16.0   64.2  32.6  2429  0.4019  147.3  366.61  369.1  610.43.02  4326.0  4593.3    97.7  360.0     142067   verified  598643   256    South_Carolina,_US
 
 vastai search offers "machine_id=142067 verified=any rentable=any"
-  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country           
-  1  48181507  13.3  1x  RTX_5090  53.7  3.2      16.0   64.2  32.6  2492  0.6552  199.2  304.09  392.6  610.43.02  4728.0  4756.6    99.7  360.0     142067   verified  598643   256    South_Carolina,_US
+  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
+  1  49537970  13.3  1x  RTX_5090  53.6  -        16.0   64.2  32.6  2429  0.6552  147.3  224.86  227.1  610.43.02  4326.0  4593.3    97.7  360.0     142067   verified  598643   256    South_Carolina,_US
 
 ## VOLUMES   https://docs.vast.ai/guides/instances/storage/volumes
 
 vastai search volumes  "machine_id=142067 verified=any"
-  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name    $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country           
-  1  48181508  13.3  3.2      4706.0    1500  MP700_ELITE  0.27        610.43.02  4728.0  4756.6    99.7  360.0     142067   verified  598643   South_Carolina,_US
+  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name    $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country
+  1  49537972  13.3  -        4374.0    1500  MP700_ELITE  0.27        610.43.02  4326.0  4593.3    97.7  360.0     142067   verified  598643   South_Carolina,_US
 
 ## INSTANCE
 
