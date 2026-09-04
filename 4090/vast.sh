@@ -10,7 +10,7 @@ Machine: 142279 Done with testing remote.py results DONE
 Test completed successfully.
 
 # --price_gpu:  per gpu rental price in $/hour
-vastai list machine 142279 --price_gpu 0.60 --discount_rate 0.35 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1000 --vol_price 0.20  --duration 1month
+vastai list machine 142279 --price_gpu 0.55 --discount_rate 0.35 --price_min_bid 0.20 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1000 --vol_price 0.20  --duration 12month
 --end_date 1784721600
 vastai unlist machine 142279
 
@@ -26,13 +26,14 @@ vastai cancel maint 142279
 ## OFFERS
 
 vastai search offers -i "machine_id=142279 verified=any rentable=any"
-  #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
-  1  45040116  13.3  1x  RTX_4090D  11.3  2.4      16.0   96.5  49.1  1445  0.2685  120.4  448.29  608.1  610.43.02  3966.7  4197.8    99.5  14.0      142279   verified  598643   999    South_Carolina,_US
+  #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs    RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
+  1  49864598  13.3  1x  RTX_4090D  23.9  3.2      8.0     80.5  49.1  774   0.2685  120.4  448.39  610.5  610.43.02  4206.5  4119.7    99.4  360.0     142279   verified  598643   256    South_Carolina,_US
+  2  49864599  13.3  2x  RTX_4090D  23.9  3.2      16.0   160.9  49.1  1547  0.5352  230.8  431.23  575.7  610.43.02  4206.5  4119.7    99.4  360.0     142279   verified  598643   256    South_Carolina,_US
 
 vastai search offers "machine_id=142279 verified=any rentable=any"
   #  ID        CUDA   N  Model      PCIE  cpu_ghz  vCPUs    RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
-  1  49864600  13.3  1x  RTX_4090D  23.9  3.2      8.0     80.5  49.1  790   0.8019  120.4  150.15  208.3  610.43.02  4390.0  4327.0    99.4  30.0      142279   verified  598643   256    South_Carolina,_US
-  2  49864599  13.3  2x  RTX_4090D  23.9  3.2      16.0   160.9  49.1  1579  1.6019  230.8  144.08  199.7  610.43.02  4390.0  4327.0    99.4  30.0      142279   verified  598643   256    South_Carolina,_US
+  1  49864600  13.3  1x  RTX_4090D  23.9  3.2      8.0     80.5  49.1  774   0.7352  120.4  163.76  221.8  610.43.02  4206.5  4119.7    99.4  360.0     142279   verified  598643   256    South_Carolina,_US
+  2  49864599  13.3  2x  RTX_4090D  23.9  3.2      16.0   160.9  49.1  1547  1.4685  230.8  157.16  209.6  610.43.02  4206.5  4119.7    99.4  360.0     142279   verified  598643   256    South_Carolina,_US
 
 curl -s 'https://console.vast.ai/api/v0/bundles' \
    -H 'Authorization: Bearer ???' \
@@ -42,7 +43,7 @@ curl -s 'https://console.vast.ai/api/v0/bundles' \
 
 vastai search volumes  "machine_id=142279 verified=any"
   #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name  $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country
-  1  45040117  13.3  2.4      2895.8    700   SN850P     0.27        610.43.02  3966.7  4197.8    99.5  11.3      142279   verified  598643   South_Carolina,_US
+  1  49864601  13.3  3.2      5303.0    1000  SN850P     0.27        610.43.02  4206.5  4119.7    99.4  360.0     142279   verified  598643   South_Carolina,_US
 
 ## INSTANCE
 
@@ -62,6 +63,7 @@ vastai create instance 49864599 \
  --ssh --direct
 
 
-vastai search offers "verified=true gpu_name notin [Q_RTX_8000,A40] num_gpus=1 gpu_ram>40 gpu_ram<60 geolocation notin [CN] rentable=false"
+vastai search offers "verified=true gpu_name notin [Q_RTX_8000,A40] num_gpus=1 gpu_ram>40 gpu_ram<60 geolocation notin [CN]"
+# rentable=false"
 # sort by price:
 # -o 'dph'
