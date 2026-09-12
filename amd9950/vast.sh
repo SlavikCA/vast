@@ -10,7 +10,7 @@ Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
 # --price_gpu 0.31 == 0.4152
-vastai list machine 147987 --price_gpu 0.90 --discount_rate 0.5 --price_min_bid 0.40 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1000 --vol_price 0.20  --duration 12month
+vastai list machine 147987 --price_gpu 0.65 --discount_rate 0.48 --price_min_bid 0.48 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1000 --vol_price 0.20  --duration 12month
 # --end_date 1784721600
 vastai unlist machine 147987
 
