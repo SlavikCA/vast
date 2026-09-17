@@ -10,7 +10,7 @@ Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
 # --price_gpu 0.31 == 0.4152
-vastai list machine 147987 --price_gpu 0.65 --discount_rate 0.48 --price_min_bid 0.48 --price_disk 0.20 --price_inetu 0.006 --price_inetd 0.004 --vol_size 1000 --vol_price 0.20  --duration 12month
+vastai list machine 147987 --price_gpu 0.55 --discount_rate 0.40 --price_min_bid 0.40 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1100 --vol_price 0.20  --duration 12month
 # --end_date 1784721600
 vastai unlist machine 147987
 
@@ -27,15 +27,19 @@ vastai cancel maint 147987
 ## OFFERS
 
 vastai search offers -i "machine_id=147987 verified=any rentable=any"
-  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
-  1  49816855  13.3  1x  RTX_5090  55.1  5.8      32.0   61.9  32.6  1521  0.5352  199.1  372.11  370.6  610.57.04  2867.5  3172.8    97.7  360.0     147987   verified  598643   99     South_Carolina,_US
+  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country           
+  1  51268042  13.3  1x  RTX_5090  55.2  5.8      32.0   61.9  32.6  1418  0.5352  140.5  262.48  241.0  610.57.04  2868.6  2680.2    97.6  360.0     147987   verified  598643   99     South_Carolina,_US
 
 vastai search offers "machine_id=147987 verified=any rentable=any"
-  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
-  1  49816855  13.3  1x  RTX_5090  55.1  5.8      32.0   61.9  32.6  1521  0.9352  199.1  212.95  200.7  610.57.04  2867.5  3172.8    97.7  360.0     147987   verified  598643   99     South_Carolina,_US
+  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country           
+  1  51268042  13.3  1x  RTX_5090  55.2  5.8      32.0   61.9  32.6  1418  0.7352  140.5  191.08  175.4  610.57.04  2868.6  2680.2    97.6  360.0     147987   verified  598643   99     South_Carolina,_US
 
 ## VOLUMES   https://docs.vast.ai/guides/instances/storage/volumes
 
 vastai search volumes  "machine_id=147987 verified=any"
-  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name  $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country
-  1  49816856  13.3  5.8      10076.2   1000  nvme       0.27        610.57.04  2867.5  3172.8    97.7  360.0     147987   verified  598643   South_Carolina,_US
+  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name        $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country           
+  1  51268043  13.3  5.8      10005.1   1000  HL-DT-ST_DVDRAM  0.27        610.57.04  2868.6  2680.2    97.6  360.0     147987   verified  598643   South_Carolina,_US
+
+vastai create instance 51268042 \
+ --image nvidia/cuda:13.3.0-devel-ubuntu24.04 \
+ --ssh --direct
