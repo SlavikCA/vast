@@ -1,0 +1,22 @@
+services:
+  unsloth:
+    # https://hub.docker.com/r/unsloth/unsloth/tags
+    image: pull unsloth/unsloth:core-nightly-2026.09.22
+    container_name: unsloth
+    devices:
+      - "nvidia.com/gpu=all"
+    ipc: host
+    ulimits:
+        memlock: -1
+        stack: 67108864
+    environment:
+      - JUPYTER_PASSWORD=junsloth
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    ports:
+      - "8000:8000"  # Studio
+      - "8888:8888"  # Jupyter
+    volumes:
+      - ./host:/workspace/host
+      - /var/lib/docker/.cache/huggingface:/workspace/.cache/huggingface
+      - ./unsloth-studio:/opt/unsloth-studio
