@@ -1,6 +1,9 @@
+# cd code/vast/amd9950/router/
+# sudo docker compose up -d
+
 services:
   llama-router:
-    image: ghcr.io/ggml-org/llama.cpp:server-cuda13-b11176
+    image: ghcr.io/ggml-org/llama.cpp:server-cuda13-b11206
     container_name: router
     devices:
       - "nvidia.com/gpu=all"

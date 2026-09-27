@@ -20,5 +20,13 @@ Why I'm using llama.cpp directly and not ran by Vast:
 
 Vast instances can use at most 64? 256? open ports each
 
+#### configure Vast API
+
+```bash
+sudo apt install pipx
+pipx install vastai
+vastai set api-key ??
+```
+
 Alternative:
 - https://provider.lium.io/
