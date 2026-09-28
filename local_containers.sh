@@ -25,10 +25,13 @@ sudo docker run $D_OPTIONS \
 #### DOWNLOAD models
 
 sudo mkdir -p /var/lib/docker/.cache/huggingface/hub
+sudo du -h -d 1  /var/lib/docker/.cache/huggingface/hub
+sudo df -hT      /var/lib/docker/.cache/huggingface/hub
 curl -LsSf https://hf.co/cli/install.sh | bash
 
 # https://huggingface.co/unsloth/medgemma-27b-it-GGUF
-sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub  unsloth/medgemma-27b-it-GGUF --include *UD-Q8_K_XL.gguf --include *-F16.gguf 
+sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub \
+ unsloth/medgemma-27b-it-GGUF --include *UD-Q8_K_XL.gguf --include *-F16.gguf 
 
 # Copy model:
 sudo rsync -av --no-o --no-g /var/lib/docker/.cache/huggingface/hub/models--unsloth--medgemma-27b-it-GGUF /mnt/models/.cache/huggingface/hub/
@@ -38,24 +41,32 @@ sudo rsync -av --no-o --no-g /var/lib/docker/.cache/huggingface/hub/models--unsl
 IMAGE="ghcr.io/ggml-org/llama.cpp:server-cuda13-b11206"
 
 LLM="--host 0.0.0.0  --port 8080  --api-key fursov \
-   --fit off --gpu-layers all --gpu-layers-draft all \
-   --top-p 0.95 --top-k 20 --temp 1.0 --min-p 0.00 --repeat-penalty 1.0 \
-   --spec-type draft-mtp"
+   --gpu-layers-draft all \
+   --top-p 0.95 --top-k 20 --temp 1.0 --min-p 0.00 --repeat-penalty 1.0"
 
 # https://huggingface.co/unsloth/Qwen3.8-27B-GGUF
 sudo docker run --name llama $D_OPTIONS -p 8080:8080 $IMAGE $LLM \
    -hf unsloth/Qwen3.8-27B-GGUF:UD-Q8_K_XL \
    --ctx-size 260000
 
-# https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF
-sudo docker run --name llama $D_OPTIONS -p 8080:8080 $IMAGE $LLM \
-   -hf unsloth/Qwen3.8-Flash-Next-GGUF:UD-Q5_K_XL \
-   --ctx-size 32768
-
 # https://huggingface.co/bartowski/orcarouter_Qwen3.8-27B-Uncensored-GGUF
 sudo docker run --name llama $D_OPTIONS -p 8080:8080 $IMAGE $LLM \
+   --spec-type draft-mtp \
    -hf bartowski/orcarouter_Qwen3.8-27B-Uncensored-GGUF:Q5_K_M \
    --ctx-size 100000
+
+# https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF
+sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub \
+ unsloth/Qwen3.8-Flash-Next-GGUF \
+ --include *mtp-Qwen3.8-Flash-Next-Q4_K_M.gguf \
+ --include *Qwen3.8-Flash-Next-UD-Q4_K_XL-00001*.gguf \
+ --include *-BF16.gguf
+
+sudo docker run --name llama $D_OPTIONS --memory=85g --memory-swap=85g -p 8080:8080 $IMAGE $LLM \
+    --threads 10 \
+    --ctx-size 131072 \
+    -hf unsloth/Qwen3.8-Flash-Next-GGUF:UD-Q4_K_XL 
+
 
 sudo docker logs -f llama
 
