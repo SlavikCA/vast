@@ -10,13 +10,15 @@ Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
 # --price_gpu 0.31 == 0.4152
-vastai list machine 142067 --price_gpu 0.60 --discount_rate 0.49 --price_min_bid 0.49 --price_disk 0.20 --price_inetu 0.008 --price_inetd 0.008 --vol_size 1500 --vol_price 0.20  --duration 12month
+vastai list machine 142067 --price_gpu 0.49 --discount_rate 0.45 --price_min_bid 0.45 --price_disk 0.20 --price_inetu 0.008 --price_inetd 0.008 --vol_size 1500 --vol_price 0.20  --duration 12month
 # --end_date 1784721600
 vastai unlist machine 142067
 
 # to remove stale/expired contracts from your machine:
 vastai cleanup machine 142067
 
+# https://docs.vast.ai/host/cli/schedule-maint
+date +%s
 vastai schedule maint 142067 --sdate 1784894400 --duration 4 --maintenance_category internet
 vastai show maints -i 142067
 vastai cancel maint 142067
@@ -27,38 +29,36 @@ vastai cancel maint 142067
 ## OFFERS
 
 vastai search offers -i "machine_id=142067 verified=any rentable=any"
-  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country
-  1  ????????  13.3  1x  RTX_5090  53.6  -        16.0   64.2  32.6  2429  0.4019  147.3  366.61  369.1  610.43.02  4326.0  4593.3    97.7  360.0     142067   verified  598643   256    South_Carolina,_US
+  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country           
+  1  53889891  13.3  1x  RTX_5090  53.7  3.2      16.0   64.2  32.6  2919  0.5885  199.3  338.59  367.5  610.43.02  3261.5  3411.9    99.3  360.0     142067   deverified  598643   256    South_Carolina,_US
 
 vastai search offers "machine_id=142067 verified=any rentable=any"
-  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  ports  country           
-  1  51334080  13.3  1x  RTX_5090  53.6  3.2      16.0   64.2  32.6  2373  0.8019  199.7  249.00  301.2  610.43.02  2563.3  3181.7    99.8  360.0     142067   verified  598643   256    South_Carolina,_US
+  #  ID        CUDA   N  Model     PCIE  cpu_ghz  vCPUs   RAM  VRAM  Disk  $/hr    DLP    DLP/$   score  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  ports  country           
+  1  53889891  13.3  1x  RTX_5090  53.7  3.2      16.0   64.2  32.6  2919  0.8019  199.3  248.51  278.7  610.43.02  3261.5  3411.9    99.3  360.0     142067   deverified  598643   256    South_Carolina,_US
 
 ## VOLUMES   https://docs.vast.ai/guides/instances/storage/volumes
 
 vastai search volumes  "machine_id=142067 verified=any"
-  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name      $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country           
-  1  51334081  13.3  3.2      3644.7    1500  Corsair_MP700  0.27        610.43.02  2563.3  3181.7    99.8  360.0     142067   verified  598643   South_Carolina,_US
+  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name    $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status      host_id  country           
+  1  53889892  13.3  3.2      3640.3    1500  MP700_ELITE  0.27        610.43.02  3261.5  3411.9    99.3  360.0     142067   deverified  598643   South_Carolina,_US
 
 ## INSTANCE
 
 # https://github.com/AlphaMine-Tech/alpha-miner/releases
-vastai create instance 45046506 \
+vastai create instance 53889891 \
  --bid_price 0.27 \
  --image alphaminetech/pearl-miner:1.8.8 \
  --onstart-cmd "/usr/local/bin/entrypoint.sh" \
  --env '-e PEARL_ADDRESS=prl1paw8r8sr6xalvqkw7qa43j3gyfygy8rry6l2vyjwhfw4s6vmpaz5s7gs9jm -e PEARL_WORKER=rtx5090 -e PEARL_DIFFICULTY=1048576 -e PEARL_POOL_HOST=us1.alphapool.tech -e PEARL_POOL_PORT=5566'
 
 
-vastai create instance 45046506 \
+vastai create instance 53889891 \
  --image nvidia/cuda:13.3.0-devel-ubuntu24.04 \
  --ssh --direct
 
-curl -X PUT 'https://console.vast.ai/api/v0/asks/45046506/' \
+curl -X PUT 'https://console.vast.ai/api/v0/asks/53889891/' \
    -H "Authorization: Bearer $VAST_API_KEY" \
    -d '{"client_id": "me", "image": "nvidia/cuda:13.3.0-devel-ubuntu24.04", "env": {}, "price": null, "disk": 10, "runtype": "ssh_direct ssh_proxy"}'
 
-vastai search offers "verified=false gpu_name in [RTX_5090] num_gpus=1 geolocation in [US] rentable=true"
-vastai search offers "verified=false gpu_name in [RTX_5090] num_gpus=1 geolocation in [US] rentable=true cuda_vers=13.3"
-# machine_id=142067"
+vastai search offers "verified=true gpu_name in [RTX_5090] num_gpus=1 geolocation in [US] rentable=true cuda_vers=13.3 machine_id=142067"
 # -o 'dph'

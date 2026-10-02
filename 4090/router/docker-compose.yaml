@@ -3,8 +3,8 @@
 
 services:
   llama-router:
-    image: ghcr.io/ggml-org/llama.cpp:server-cuda13-b11312
-    container_name: router
+    image: ghcr.io/ggml-org/llama.cpp:server-cuda13-b11347
+    container_name: gpu0-router
     devices:
       - "nvidia.com/gpu=0"
     ports:
