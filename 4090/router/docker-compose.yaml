@@ -1,4 +1,4 @@
-# cd ~/code/vast/amd9950/router/
+# cd ~/vast/4090/router/
 # sudo docker compose up -d
 
 services:
