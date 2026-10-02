@@ -68,6 +68,13 @@ sudo docker run --name llama $D_OPTIONS --memory=85g --memory-swap=85g -p 8080:8
     -hf unsloth/Qwen3.8-Flash-Next-GGUF:UD-Q4_K_XL 
 
 
+# https://huggingface.co/BoldingBuilds/orcarouter_GLM-5.3-Flash-Uncensored-GGUF
+# 128 GB
+sudo /home/slavik/.local/bin/hf download --cache-dir /var/lib/docker/.cache/huggingface/hub \
+ BoldingBuilds/orcarouter_GLM-5.3-Flash-Uncensored-GGUF \
+ --include *IQ3_XXS* \
+ --include *mmproj-GLM-5.3-Flash-Uncensored-F16.gguf
+
 sudo docker logs -f llama
 
 sudo docker stop llama
