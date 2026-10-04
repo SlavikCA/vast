@@ -29,8 +29,8 @@ sudo du -h -d 1  /var/lib/docker/.cache/huggingface/hub
 sudo df -hT      /var/lib/docker/.cache/huggingface/hub
 curl -LsSf https://hf.co/cli/install.sh | bash
 
-sudo /home/slavik/.local/bin/hf cache ls --cache-dir /var/lib/docker/.cache/huggingface/hub
- --revisions
+# https://huggingface.co/docs/huggingface_hub/main/en/guides/cli#hf-cache
+sudo /home/slavik/.local/bin/hf cache ls --cache-dir /var/lib/docker/.cache/huggingface/hub --revisions
 
 export HF_HUB_DISABLE_SHARED_BLOBS=1
 
