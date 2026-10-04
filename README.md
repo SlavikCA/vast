@@ -30,3 +30,7 @@ vastai set api-key ??
 
 Alternative:
 - https://provider.lium.io/
+
+Current realistic price:
+- https://hashrate.no/hostings/5090/Vast/
+- https://hashrate.no/platforms/vast/gpus
