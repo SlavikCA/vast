@@ -5,3 +5,6 @@
  --old_uuid (optional, the specific dead GPU to replace), 
  --skip_swap (just re-report GPU list without changing anything).
 
+# Trigger speed test:
+
+sudo ./send_mach_info.py --speedtest
