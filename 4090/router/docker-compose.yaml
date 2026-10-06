@@ -7,7 +7,7 @@ services:
     container_name: gpu0-router
     devices:
       - "nvidia.com/gpu=0"
-      #- "nvidia.com/gpu=all"
+#      - "nvidia.com/gpu=all"
     ports:
       - "8080:8080"
     mem_limit: 85g
