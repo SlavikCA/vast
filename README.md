@@ -31,6 +31,11 @@ vastai set api-key ??
 Alternative:
 - https://provider.lium.io/
 
-Current realistic price:
-- https://hashrate.no/hostings/5090/Vast/
+Current realistic price (rented P50 .. P90):
+- https://hashrate.no/hostings/5090/Vast/   $0.40 - $0.65
+- https://hashrate.no/hostings/5080/Vast/   $0.18 - $0.25
+- https://hashrate.no/hostings/5070ti/Vast/ $0.15 - $0.25
+- https://hashrate.no/hostings/5070/Vast/   $0.12 - $0.16
+- https://hashrate.no/hostings/5060ti/Vast/ $0.11 - $0.17
+- https://hashrate.no/hostings/5060/Vast/   $0.07 - $0.16
 - https://hashrate.no/platforms/vast/gpus
