@@ -1,4 +1,3 @@
-## MACHINE
 vastai show machine 142067
   #  ID      #gpus  gpu_name  disk  hostname  driver     reliab  veri      ip              geoloc              reports  gpuD_$/h  gpuI$/h  rdisc  netu_$/TB  netd_$/TB  occup
   1  142067  1      RTX_5090  2373  vast5090  610.43.02  0.9977  verified  104.63.172.143  South_Carolina,_US  -        0.60      0.49     0.49   8.19       8.19       x_   
@@ -10,7 +9,7 @@ Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
 # --price_gpu 0.31 == 0.4152
-vastai list machine 142067 --price_gpu 0.54 --discount_rate 0.45 --price_min_bid 0.40 --price_disk 0.20 --price_inetu 0.008 --price_inetd 0.008 --vol_size 1500 --vol_price 0.20  --duration 12month
+vastai list machine 142067 --price_gpu 0.64 --discount_rate 0.45 --price_min_bid 0.40 --price_disk 0.20 --price_inetu 0.008 --price_inetd 0.008 --vol_size 1500 --vol_price 0.20  --duration 12month
 # --end_date 1784721600
 vastai unlist machine 142067
 
@@ -60,5 +59,15 @@ curl -X PUT 'https://console.vast.ai/api/v0/asks/53889891/' \
    -H "Authorization: Bearer $VAST_API_KEY" \
    -d '{"client_id": "me", "image": "nvidia/cuda:13.3.0-devel-ubuntu24.04", "env": {}, "price": null, "disk": 10, "runtype": "ssh_direct ssh_proxy"}'
 
-vastai search offers "verified=true gpu_name in [RTX_5090] num_gpus=1 geolocation in [US] rentable=true cuda_vers=13.3 machine_id=142067"
+vastai search offers --limit 50 --full "verified=true gpu_name in [RTX_5090] num_gpus=1 geolocation in [US] rentable=true cuda_vers=13.3 machine_id=142067" --curl
 # -o 'dph'
+
+curl https://console.vast.ai/api/v0/bundles -d \
+   '{"cuda_max_good": {"eq": "13.3"}, "verified": {"eq": true}, "external": {"eq": false}, "rentable": {"eq": true}, "gpu_name": {"in": ["RTX 5090"]}, "num_gpus": {"eq": "1"}, "geolocation": {"in": ["US"]}, "order": [["score", "desc"]], "type": "on-demand", "limit": 40, "allocated_storage": 5.0}'  > t3.json
+
+"cuda_max_good": {"eq": "13.3"}, "machine_id": {"eq": "142067"}, 
+
+
+cat t3.json | jq | grep '"id"' | wc -l
+cat t3.json | jq | grep 'score'
+cat t3.json | jq | grep '53889891'

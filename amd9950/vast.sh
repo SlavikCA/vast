@@ -10,7 +10,7 @@ Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
 # --price_gpu 0.31 == 0.4152
-vastai list machine 147987 --price_gpu 0.55 --discount_rate 0.40 --price_min_bid 0.40 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1100 --vol_price 0.20  --duration 12month
+vastai list machine 147987 --price_gpu 0.49 --discount_rate 0.34 --price_min_bid 0.34 --price_disk 0.20 --price_inetu 0.005 --price_inetd 0.005 --vol_size 1100 --vol_price 0.20  --duration 12month
 # --end_date 1784721600
 vastai unlist machine 147987
 
@@ -37,8 +37,8 @@ vastai search offers "machine_id=147987 verified=any rentable=any"
 ## VOLUMES   https://docs.vast.ai/guides/instances/storage/volumes
 
 vastai search volumes  "machine_id=147987 verified=any"
-  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name        $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country           
-  1  51268043  13.3  5.8      10005.1   1000  HL-DT-ST_DVDRAM  0.27        610.57.04  2868.6  2680.2    97.6  360.0     147987   verified  598643   South_Carolina,_US
+  #  ID        CUDA  cpu_ghz  Disk B/W  Disk  Disk Name          $/Gb/Month  NV Driver  Net_up  Net_down  R     Max_Days  mach_id  status    host_id  country           
+  1  51268043  13.3  5.8      10444.8   1100  Corsair_MP700_PRO  0.27        610.57.04  2856.6  3038.2    97.8  359.4     147987   verified  598643   South_Carolina,_US
 
 vastai create instance 51268042 \
  --image nvidia/cuda:13.3.0-devel-ubuntu24.04 \
