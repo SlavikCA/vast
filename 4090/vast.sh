@@ -9,7 +9,7 @@ Machine: 142279 Done with testing remote.py results DONE
 Test completed successfully.
 
 # --price_gpu:  per gpu rental price in $/hour
-vastai list machine 142279 --price_gpu 0.59 --discount_rate 0.44 --price_min_bid 0.44 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 12month
+vastai list machine 142279 --price_gpu 0.79 --discount_rate 0.54 --price_min_bid 0.54 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 12month
 --end_date 1784721600
 vastai unlist machine 142279
 

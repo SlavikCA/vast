@@ -1,3 +1,4 @@
+### RTX 5090 with 96 GB RAM
 vastai show machine 142067
   #  ID      #gpus  gpu_name  disk  hostname  driver     reliab  veri      ip              geoloc              reports  gpuD_$/h  gpuI$/h  rdisc  netu_$/TB  netd_$/TB  occup
   1  142067  1      RTX_5090  2373  vast5090  610.43.02  0.9977  verified  104.63.172.143  South_Carolina,_US  -        0.60      0.49     0.49   8.19       8.19       x_   
@@ -9,7 +10,7 @@ Test completed successfully.
 
 # --price_gpu 0.37 == 0.4952
 # --price_gpu 0.31 == 0.4152
-vastai list machine 142067 --price_gpu 0.64 --discount_rate 0.45 --price_min_bid 0.40 --price_disk 0.20 --price_inetu 0.008 --price_inetd 0.008 --vol_size 1500 --vol_price 0.20  --duration 12month
+vastai list machine 142067 --price_gpu 1.29 --discount_rate 0.99 --price_min_bid 0.99 --price_disk 0.20 --price_inetu 0.008 --price_inetd 0.008 --vol_size 1500 --vol_price 0.20  --duration 12month
 # --end_date 1784721600
 vastai unlist machine 142067
 
