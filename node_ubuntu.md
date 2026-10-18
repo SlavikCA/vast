@@ -1,15 +1,14 @@
 # Typical Ubuntu node config:
 
 ```bash
-sudo apt install -y qemu-guest-agent  
-sudo apt install -y nfs-common git curl openssh-server
-
 # automatic upgrades can break things
 sudo apt purge --auto-remove unattended-upgrades -y
 sudo systemctl disable apt-daily-upgrade.timer
 sudo systemctl disable apt-daily.timer
 
 sudo snap remove firmware-updater
+
+sudo apt install -y qemu-guest-agent nfs-common git curl openssh-server
 ```
 
 # if GUI present:

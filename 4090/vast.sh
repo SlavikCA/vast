@@ -49,7 +49,8 @@ vastai create instance ?? \
  --onstart-cmd "/usr/local/bin/entrypoint.sh" \
  --env '-e PEARL_ADDRESS=prl1paw8r8sr6xalvqkw7qa43j3gyfygy8rry6l2vyjwhfw4s6vmpaz5s7gs9jm -e PEARL_WORKER=rtx4090d -e PEARL_DIFFICULTY=1048576 -e PEARL_POOL_HOST=us1.alphapool.tech -e PEARL_POOL_PORT=5566'
 
-./AlphaMiner-Linux-1.9.5.2.run \
+# https://github.com/AlphaMine-Tech/alpha-miner
+./alpha-miner \
   --host us2.alphapool.tech --port 5566 \
   --worker prl1paw8r8sr6xalvqkw7qa43j3gyfygy8rry6l2vyjwhfw4s6vmpaz5s7gs9jm \
   --password "x;d=524288"

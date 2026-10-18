@@ -22,9 +22,9 @@ sudo apt-get update
 sudo apt-get install -y nvidia-open nvtop
 
 # 4090:
-sudo apt-get install -y nvidia-driver nvtop
 echo 'options nvidia NVreg_EnableGpuFirmware=0' | sudo tee /etc/modprobe.d/nvidia-disable-gsp.conf
-sudo update-initramfs -u
+sudo apt-get install -y nvidia-driver nvtop
+# sudo update-initramfs -u
 
 sudo reboot
 

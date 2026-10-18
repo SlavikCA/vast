@@ -26,6 +26,9 @@ VM=112
 qm set $VM --scsi0 /dev/disk/by-id/nvme-WD_BLACK_SN850P_for_PS5_2000GB_244308802500,iothread=on,product=SN850P,ssd=1,vendor=WD,discard=on
 qm set $VM --scsi0 /dev/disk/by-id/nvme-Corsair_MP700_ELITE_AA0FB538001EFR,iothread=on,product=MP700_ELITE,ssd=1,vendor=Corsair,discard=on
 #  ,cache=writeback
+
+# vast4090double
+qm set 109 --scsi0 /dev/disk/by-partuuid/cd4c8ed7-cf0f-415e-ae85-070cccf94a3f,iothread=on,discard=on,ssd=1,backup=0,product=NM790,vendor=Lexar
 ```
 
 ```
