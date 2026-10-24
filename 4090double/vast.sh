@@ -38,20 +38,20 @@ vastai create instance 56340715 \
 
 
 slavik@vast4090double:~$ nvidia-smi
-Sat Oct 24 14:58:40 2026       
+Sat Oct 24 19:03:42 2026
 +-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 615.71.09              KMD Version: 615.71.09     CUDA UMD Version: 13.4     |
+| NVIDIA-SMI 615.71.10              KMD Version: 615.71.10     CUDA UMD Version: 13.4     |
 +-----------------------------------------+------------------------+----------------------+
 | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
 |   0  NVIDIA GeForce RTX 4090        On  |   00000000:01:00.0 Off |                  Off |
-|100%   64C    P2            446W /  450W |   35118MiB /  49140MiB |    100%      Default |
+| 32%   34C    P8             16W /  225W |       1MiB /  49140MiB |      0%      Default |
 |                                         |                        |                  N/A |
 +-----------------------------------------+------------------------+----------------------+
 |   1  NVIDIA GeForce RTX 4090        On  |   00000000:02:00.0 Off |                  Off |
-|100%   69C    P2            447W /  450W |   35406MiB /  49140MiB |    100%      Default |
+| 33%   32C    P8             17W /  450W |       1MiB /  49140MiB |      0%      Default |
 |                                         |                        |                  N/A |
 +-----------------------------------------+------------------------+----------------------+
 
