@@ -72,3 +72,21 @@ curl https://console.vast.ai/api/v0/bundles -d \
 cat t3.json | jq | grep '"id"' | wc -l
 cat t3.json | jq | grep 'score'
 cat t3.json | jq | grep '53889891'
+
+
+slavik@vast5090:~$ nvidia-smi
+Fri Oct 23 15:34:34 2026
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5090        On  |   00000000:01:00.0 Off |                  N/A |
+|  0%   36C    P8             12W /  575W |     508MiB /  32607MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
+slavik@vast5090:~$ uname -r
+6.8.0-147-generic
