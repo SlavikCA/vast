@@ -8,9 +8,9 @@ vastai self-test machine 147987
 Machine: 147987 Done with testing remote.py results DONE
 Test completed successfully.
 
-# --price_gpu 0.37 == 0.4952
-# --price_gpu 0.31 == 0.4152
-vastai list machine 147987 --price_gpu 0.99 --discount_rate 0.79 --price_min_bid 0.79 --price_disk 0.20 --price_inetu 0.005 --price_inetd 0.005 --vol_size 1100 --vol_price 0.20  --duration 12month
+vastai list machine 147987 --price_gpu 0.69 --discount_rate 0.54 --price_min_bid 0.54 --price_disk 0.20 --price_inetu 0.005 --price_inetd 0.005 --vol_size 1100 --vol_price 0.20  --duration 3month
+vastai list machine 147987 --price_gpu 0.99 --discount_rate 0.69 --price_min_bid 0.69 --price_disk 0.20 --price_inetu 0.005 --price_inetd 0.005 --vol_size 1100 --vol_price 0.20  --duration 3month
+
 # --end_date 1784721600
 vastai unlist machine 147987
 
