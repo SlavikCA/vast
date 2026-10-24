@@ -43,3 +43,21 @@ vastai search volumes  "machine_id=147987 verified=any"
 vastai create instance 51268042 \
  --image nvidia/cuda:13.3.0-devel-ubuntu24.04 \
  --ssh --direct
+
+
+slavik@amd9950:~$ nvidia-smi
+Sat Oct 24 11:08:32 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5090        On  |   00000000:01:00.0 Off |                  N/A |
+|  0%   28C    P8             20W /  400W |       2MiB /  32607MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
+slavik@amd9950:~$ uname -r
+7.0.0-31-generic

@@ -63,3 +63,26 @@ vastai search offers "verified=true gpu_name notin [Q_RTX_8000,A40] num_gpus=1 g
 # rentable=false"
 # sort by price:
 # -o 'dph'
+
+
+slavik@vast4090:~$ nvidia-smi
+Sat Oct 24 15:07:29 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4090 D      On  |   00000000:01:00.0 Off |                  Off |
+|  0%   37C    P8             37W /  425W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce RTX 4090 D      On  |   00000000:02:00.0 Off |                  Off |
+| 30%   43C    P0             47W /  425W |   17524MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
+
+slavik@vast4090:~$ uname -r
+6.8.0-142-generic
