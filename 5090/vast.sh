@@ -76,16 +76,16 @@ cat t3.json | jq | grep '53889891'
 
 
 slavik@vast5090:~$ nvidia-smi
-Fri Oct 23 15:34:34 2026
+Wed Nov  4 14:38:11 2026
 +-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
+| NVIDIA-SMI 620.70.06              KMD Version: 620.70.06     CUDA UMD Version: 13.5     |
 +-----------------------------------------+------------------------+----------------------+
 | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
 |   0  NVIDIA GeForce RTX 5090        On  |   00000000:01:00.0 Off |                  N/A |
-|  0%   36C    P8             12W /  575W |     508MiB /  32607MiB |      0%      Default |
+|  0%   33C    P8             12W /  575W |       0MiB /  32607MiB |      0%      Default |
 |                                         |                        |                  N/A |
 +-----------------------------------------+------------------------+----------------------+
 

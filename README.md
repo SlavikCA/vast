@@ -39,3 +39,8 @@ Current realistic price (rented P50 .. P90):
 - https://hashrate.no/hostings/5060ti/Vast/ $0.11 - $0.17
 - https://hashrate.no/hostings/5060/Vast/   $0.07 - $0.16
 - https://hashrate.no/platforms/vast/gpus
+
+
+# ChangeLogs
+
+https://docs.nvidia.com/cuda/
