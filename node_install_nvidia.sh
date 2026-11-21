@@ -49,3 +49,11 @@ ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{device}=="0x22e8",
 
 udevadm control --reload-rules
 udevadm trigger -s pci
+
+
+## Upgrade drivers
+
+sudo apt-mark unhold $(apt-mark showhold | grep -E 'nvidia|libnvidia|xserver-xorg-video-nvidia')
+sudo apt upgrade
+sudo reboot
+# set hourly by VAST

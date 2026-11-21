@@ -63,3 +63,5 @@ set polkit config
 install Beszel
 
 # install_nvidia.sh
+
+# optionally configure zswap (in Harvester repo)
