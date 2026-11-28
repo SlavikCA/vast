@@ -8,8 +8,9 @@ vastai self-test machine 147987
 Machine: 147987 Done with testing remote.py results DONE
 Test completed successfully.
 
-vastai list machine 147987 --discount_rate 0.2 --price_gpu 0.64 --price_min_bid 0.49 --price_disk 0.20 --price_inetu 0.005 --price_inetd 0.005 --vol_size 1100 --vol_price 0.20  --duration 6month
+vastai list machine 147987 --discount_rate 0.2 --price_gpu 0.59 --price_min_bid 0.49 --price_disk 0.20 --price_inetu 0.005 --price_inetd 0.005 --vol_size 1100 --vol_price 0.20  --duration 6month
 vastai list machine 147987 --discount_rate 0.2 --price_gpu 0.99 --price_min_bid 0.69 --price_disk 0.20 --price_inetu 0.005 --price_inetd 0.005 --vol_size 1100 --vol_price 0.20  --duration 3month
+vastai list machine 147987 --discount_rate 0.2 --price_gpu 7.99 --price_min_bid 0.69 --price_disk 0.20 --price_inetu 0.005 --price_inetd 0.005 --vol_size 1100 --vol_price 0.20  --duration 3month
 
 # --end_date 1784721600
 vastai unlist machine 147987
@@ -17,7 +18,9 @@ vastai unlist machine 147987
 # to remove stale/expired contracts from your machine:
 vastai cleanup machine 147987
 
-vastai schedule maint 147987 --sdate 1784894400 --duration 4 --maintenance_category internet
+# https://docs.vast.ai/host/cli/schedule-maint
+date -d "+2 minutes" +%s
+vastai schedule maint 147987 --sdate 1795849552 --duration 1 --maintenance_category software
 vastai show maints -i 147987
 vastai cancel maint 147987
 

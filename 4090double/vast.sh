@@ -11,7 +11,7 @@ Test completed successfully.
 vastai list machine 154319 --discount_rate 0.2 --price_gpu 0.39 --price_min_bid 0.33 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 1month
 vastai list machine 154319 --discount_rate 0.2 --price_gpu 0.44 --price_min_bid 0.42 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 1month
 vastai list machine 154319 --discount_rate 0.2 --price_gpu 0.49 --price_min_bid 0.39 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 6month
-vastai list machine 154319 --discount_rate 0.2 --price_gpu 0.59 --price_min_bid 0.44 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 6month
+vastai list machine 154319 --discount_rate 0.2 --price_gpu 0.54 --price_min_bid 0.44 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 6month
 vastai list machine 154319 --discount_rate 0.2 --price_gpu 0.69 --price_min_bid 0.49 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 6month
 vastai list machine 154319 --discount_rate 0.2 --price_gpu 0.99 --price_min_bid 0.59 --price_disk 0.20 --price_inetu 0.009 --price_inetd 0.006 --vol_size 1200 --vol_price 0.20  --duration 12month
 --end_date 1784721600
